@@ -19,9 +19,18 @@ export const getBooksError =(error) => dispatch =>({
 })
 
 export const getBooks =(search) => (dispatch,getState)=>{
+    console.log(search,'this is our search input')
     dispatch(getBooksRequest());
-    fetch(`${GOOGLE_API}?q=${search}&prettyPrint=true&maxResults=10&printType=books&key=${KEY}`)
-    .then(res => res.json())
-    .then(data =>dispatch(getBooksSucess(data)))
+    fetch(`${GOOGLE_API}q=${search}&prettyPrint=true&maxResults=5&printType=books&key=${KEY}`,{
+        method:'GET',
+        headers: {'Content-Type': 'application/json'}
+    })
+    .then(res =>{
+        
+       return res.json()
+    })
+    .then(data =>{ 
+        data = data.items.map(x => x.volumeInfo) 
+        dispatch(getBooksSucess(data))})
     .catch(err => dispatch(getBooksError(err)))
 }

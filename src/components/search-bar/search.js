@@ -1,12 +1,41 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux';
+import { getBooks } from '../../actions/book_action';
 
-export default class Search extends Component {
+ class BookSearch extends Component {
+    constructor(){
+        super();
+       this.state ={
+            bookSearch:""
+        }
+    }
+    handleBookSearch(event){
+       this.setState({
+        bookSearch:event.target.value
+       })
+    }
+    submitForm(event){
+        event.preventDefault();
+        this.props.dispatch(getBooks(
+            this.state.bookSearch
+        ))
+        event.target.books.value =""
+    }
   render() {
     return (
       <div>
-        <form class="form">
-            <input class="form__input" type="text" placeholder="book"/>
-            <button class="form__button">
+        <form 
+        className="form"
+        onSubmit={this.submitForm.bind(this)}
+        >
+            <input 
+            onChange={this.handleBookSearch.bind(this)}
+            className="form__input" 
+            name="books"
+            type="text" 
+            placeholder="book"
+            />
+            <button className="form__button" type='submit'>
                 Search
             </button>
         </form>
@@ -14,3 +43,11 @@ export default class Search extends Component {
     )
   }
 }
+const mapStateToProps = (state) =>{
+    console.log(state,"this is our state")
+    return {
+        book:state.book
+    }
+}
+
+export default connect(mapStateToProps)(BookSearch)

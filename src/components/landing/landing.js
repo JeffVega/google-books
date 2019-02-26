@@ -1,16 +1,19 @@
 import React, { Component } from 'react'
 import Search from '../search-bar/search';
+import Book from '../bookCards/book';
 
 export default class Landing extends Component {
   render() {
     return (
       <div>
-          <div class="landing">
-            <header class="landHeader">
-                <h1 class="landHeader__title"> Book Finder</h1>
+          
+            <header className="landHeader">
+                <h1 className="landHeader__title"> Book Finder</h1>
+                <Search className="landHeader__search"/>
             </header>
-               <Search/>
-        </div>
+               
+   
+        <Book/>
       </div>
     )
   }

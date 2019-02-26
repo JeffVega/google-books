@@ -1,23 +1,38 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux';
+import { getBooks } from '../../actions/book_action';
 
-export default class Book extends Component {
+class Book extends Component {
+    componentWillUnmount(){
+        this.props.dispatch(
+            getBooks()
+        )
+    }
   render() {
+      console.log(this.props.book.books,'this is our book props')
+     
     return (
-      <div class="book">
-        <h1 class="book__title">
-        The Great Gastby
-        </h1>
-        <img class="book__img" src="https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjYmpew0tfgAhUTBHwKHUdlAF0QjRx6BAgBEAU&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FThe_Great_Gatsby&psig=AOvVaw2UKqWqGNqfUMx75c8sl4z3&ust=1551210180892765" alt="img-of-book"/>
-        <p class="author">
-        F-Scott-Fitzgerald
-        </p>
-        <p class="book__pub">
-        Charles Scribner's Sons
-        </p>
-        <a class="book__link" herf="https://books.google.com/books/about/The_Great_Gatsby.html?id=iXn5U2IzVH0C" >
-            The Great Gastby
-        </a>
+      <div className="bookPage">
+         {
+             this.props.book.books.map((data, index) => (
+                     
+                        <div key={index} className="books">
+                        <img className="books__img" src={data.imageLinks.smallThumbnail} alt={data.title}/>
+                            <p className="books__title">{data.title}</p>
+                            <p className="books__authors">{data.authors.map(x => x)}</p>
+                            <p className="books__publisher">{data.publisher}</p>
+                            <a className="books__infoLinks"href={data.infoLink}>{data.title}</a>                        
+                        </div>
+                    ))}
       </div>
     )
   }
 }
+const mapStateToProps = (state) =>{
+    console.log(state.bookStore,'this is our data 34343')
+    return {
+        book:state.bookStore
+
+    }
+}
+export default connect(mapStateToProps)(Book)

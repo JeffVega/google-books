@@ -10,6 +10,7 @@ const initialState ={
     error:null
 }
 export const bookReducer = (state = initialState, action) => {
+    console.log(state,'this is our reducer state')
     if(action.type === GET_BOOKS_REQUEST){
         return Object.assign({},state,{
             loading:true
@@ -17,7 +18,7 @@ export const bookReducer = (state = initialState, action) => {
     }
     else if(action.type === GET_BOOKS_SUCCESS){
         return Object.assign({},state,{
-            books:[...state.books],
+            books:[...action.book],
             loading:false
         })
     }
@@ -27,5 +28,6 @@ export const bookReducer = (state = initialState, action) => {
             error:action.error
         })
     }
+    
     return state
 }
