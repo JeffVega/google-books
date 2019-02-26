@@ -1,3 +1,5 @@
+import { GOOGLE_API, KEY } from '../config';
+
 
 
 export const GET_BOOKS_REQUEST = "GET_BOOKS_REQUEST";
@@ -16,3 +18,10 @@ export const getBooksError =(error) => dispatch =>({
     error
 })
 
+export const getBooks =(search) => (dispatch,getState)=>{
+    dispatch(getBooksRequest());
+    fetch(`${GOOGLE_API}?q=${search}&prettyPrint=true&maxResults=10&printType=books&key=${KEY}`)
+    .then(res => res.json())
+    .then(data =>dispatch(getBooksSucess(book)))
+    .catch(err => dispatch(getBooksError(err)))
+}
