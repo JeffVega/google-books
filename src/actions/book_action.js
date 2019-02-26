@@ -22,6 +22,6 @@ export const getBooks =(search) => (dispatch,getState)=>{
     dispatch(getBooksRequest());
     fetch(`${GOOGLE_API}?q=${search}&prettyPrint=true&maxResults=10&printType=books&key=${KEY}`)
     .then(res => res.json())
-    .then(data =>dispatch(getBooksSucess(book)))
+    .then(data =>dispatch(getBooksSucess(data)))
     .catch(err => dispatch(getBooksError(err)))
 }
