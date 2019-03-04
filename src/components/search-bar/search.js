@@ -44,7 +44,7 @@ import { getBooks } from '../../actions/book_action';
   }
 }
 const mapStateToProps = (state) =>{
-    console.log(state,"this is our state")
+    
     return {
         book:state.book
     }

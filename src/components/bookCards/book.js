@@ -9,7 +9,7 @@ class Book extends Component {
         )
     }
   render() {
-      console.log(this.props.book.books,'this is our book props')
+    
      
     return (
       <div className="bookPage">
@@ -29,7 +29,7 @@ class Book extends Component {
   }
 }
 const mapStateToProps = (state) =>{
-    console.log(state.bookStore,'this is our data 34343')
+    
     return {
         book:state.bookStore
 

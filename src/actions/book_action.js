@@ -19,7 +19,7 @@ export const getBooksError =(error) => dispatch =>({
 })
 
 export const getBooks =(search) => (dispatch,getState)=>{
-    console.log(search,'this is our search input')
+    
     dispatch(getBooksRequest());
     fetch(`${GOOGLE_API}q=${search}&prettyPrint=true&maxResults=5&printType=books&key=${KEY}`,{
         method:'GET',
