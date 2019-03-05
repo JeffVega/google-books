@@ -21,7 +21,7 @@ class Book extends Component {
                             <p className="books__title">{data.title}</p>
                             <p className="books__authors">{data.authors.map(x => x)}</p>
                             <p className="books__publisher">{data.publisher}</p>
-                            <a className="books__infoLinks"href={data.infoLink}>{data.title}</a>                        
+                            <a className="books__infoLinks"href={data.infoLink}>Learn More</a>                        
                         </div>
                     ))}
       </div>

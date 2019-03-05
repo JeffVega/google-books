@@ -20,6 +20,7 @@ body{
     height: 125px;
     text-align: center;
     padding-top: 20px;
+    overflow-y: hidden;
     &__title{
         padding-bottom: 15px;
         text-transform: uppercase;

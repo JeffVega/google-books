@@ -1,0 +1,81 @@
+.bookPage{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    margin-left: 200px;
+    padding: 10px;
+
+    &::before{
+        content: "";
+        display: block;
+       padding-top: 1%;
+        
+    }
+
+  
+}
+.books{
+    display: grid;
+    justify-content: space-around;
+   background-image: linear-gradient(to left top,  #85cbd1, #70d7ae,white);
+   border:none;
+    border-radius: 2.5px;
+    position: relative;
+    height: 220px;
+    width: 550px;
+    padding: 10px;
+    margin: 5px;
+    overflow-y: hidden;
+    box-shadow: 11px 11px 5px -3px rgba(0,0,0,0.28);
+    
+    &__img{
+        position: absolute;
+        height: auto;
+        top: 5px;
+        left: 20px;
+    }
+    &__infoLinks{
+        display: flex;
+        text-decoration: none;
+        border-radius: 5px;
+        background: darken(#76fac8,30%) ;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        width: 100px;
+        height: auto;
+        margin: 20px;
+        transition: all 5s;
+        :hover{
+            background: darken(#76fac8,50%) ;
+        }
+        
+    }
+}
+
+@keyframes bookDisplayAni{
+    0%{
+      opacity: 0;  
+    }
+    50%{
+        opacity: 0.8;
+        
+    }
+    100%{
+        opacity: 100%;
+    }
+}
+
+  
+  @media only screen and (min-width: 768px) {
+    .bookPage{
+        width: 100%
+    }
+  }
+  @media only screen and (min-width: 320px){
+    .bookPage{
+        width: 100%;
+        
+    }
+  }

@@ -33,7 +33,7 @@ import { getBooks } from '../../actions/book_action';
             className="form__input" 
             name="books"
             type="text" 
-            placeholder="book"
+            placeholder="Search Book Name..."
             />
             <button className="form__button" type='submit'>
                 Search
