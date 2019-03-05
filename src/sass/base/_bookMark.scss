@@ -18,7 +18,7 @@
 .books{
     display: grid;
     justify-content: space-around;
-   background-image: linear-gradient(to left top,  #85cbd1, #70d7ae,white);
+   background-image: linear-gradient(to left top,  #0cc7d8, #70d7ae,white);
    border:none;
     border-radius: 2.5px;
     position: relative;
@@ -46,8 +46,8 @@
         width: 100px;
         height: auto;
         margin: 20px;
-        transition: all 5s;
-        :hover{
+        transition: all 2s;
+        &:hover{
             background: darken(#76fac8,50%) ;
         }
         
