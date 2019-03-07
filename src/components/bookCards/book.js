@@ -25,6 +25,11 @@ class Book extends Component {
                            </div>
                        ))
         )}
+        else{
+            return(
+            <h1 className="srry"> Sorry Book Search unavailable</h1>
+            )
+        }
     }
   render() {
     

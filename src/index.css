@@ -97,6 +97,18 @@ body {
     .books__infoLinks:hover {
       background: #046d45; }
 
+.srry {
+  position: absolute;
+  left: 50px;
+  right: 50px;
+  font-size: 300%;
+  text-transform: uppercase;
+  color: #f5427f; }
+
+@media only screen and (max-width: 465px) {
+  .srry {
+    font-size: 200%; } }
+
 @keyframes bookDisplayAni {
   0% {
     opacity: 0; }
